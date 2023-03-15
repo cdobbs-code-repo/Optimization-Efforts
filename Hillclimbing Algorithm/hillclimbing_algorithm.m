@@ -47,15 +47,15 @@ while residual > 10^-6
     % debug - maybe delete later - end
         
         % calculations - start
-        Is1 = (V1 - Vs1) / Zs1;
-        Is2 = (V2 - Vs2) / Zs2;
-        IL = (V2 - V1) / ZL;
+        Is1 = (Vs1 - V1) / Zs1;
+        Is2 = (Vs2 - V2) / Zs2;
+        IL = (V1 - V2) / ZL;
         
         I1 = Is1 - IL;
         I2 = Is2 + IL;
         
         S1_calc = V1*conj(I1);
-        S2_calc = V2*conj(I2);
+        S2_calc = V2*conj(I2);      
         
         residual_prev = residual;
         residual = abs(S1_exp - S1_calc) + abs(S2_exp - S2_calc);
